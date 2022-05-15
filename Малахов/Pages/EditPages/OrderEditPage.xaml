@@ -1,0 +1,24 @@
+﻿<Page x:Class="Малахов.Pages.EditPages.OrderEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+      xmlns:local="clr-namespace:Малахов.Pages.EditPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="320" d:DesignWidth="250"
+      VerticalAlignment="Center" HorizontalAlignment="Center"
+      Title="OrderEditPage">
+
+    <StackPanel Width="250">
+        <ComboBox SelectedItem="{Binding Service}" md:HintAssist.Hint="Услуга" md:HintAssist.IsFloating="True" DisplayMemberPath="Title" Name="CBService" Grid.Column="1" Grid.Row="0"></ComboBox>
+        <ComboBox SelectedItem="{Binding Client}" md:HintAssist.Hint="Клиент" md:HintAssist.IsFloating="True" DisplayMemberPath="Fullname" Name="CBClient" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox SelectedItem="{Binding Manager}" md:HintAssist.Hint="Менеджер" md:HintAssist.IsFloating="True" DisplayMemberPath="Fullname" Name="CBManager" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Text="{Binding Count}" md:HintAssist.Hint="Количество дней" md:HintAssist.IsFloating="True" Name="TBCount" TextChanged="TBCount_TextChanged" Cursor="IBeam"/>
+        <ComboBox SelectedItem="{Binding DurationInSecond}" md:HintAssist.Hint="Длительность" md:HintAssist.IsFloating="True" Name="CbDuration" SelectionChanged="CbDuration_SelectionChanged"/>
+        <DatePicker SelectedDate="{Binding Date}" md:HintAssist.Hint="Дата вещания" md:HintAssist.IsFloating="True" DisplayDate="01.01.2022" Name="TBDate"/>
+        <TextBlock TextAlignment="Center" Margin="0,5,0,0" Text="{Binding Sum}" Height="30" md:TextFieldAssist.PrefixText="Стоимость: " md:TextFieldAssist.SuffixText=" рублей" Name="TBSum"/>
+        <CheckBox Content="Одобрена" md:HintAssist.Hint="Услуга" md:HintAssist.IsFloating="True" IsChecked="{Binding Status}" Grid.Column="1" Grid.Row="7"/>
+        <Button Content="Сохранить" Style="{DynamicResource MaterialDesignPaperButton}" Margin="0,5" Name="BntSave" Click="BntSave_Click"/>
+    </StackPanel>
+</Page>

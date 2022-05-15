@@ -1,0 +1,21 @@
+﻿<Page x:Class="Малахов.ClientEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Малахов"
+      mc:Ignorable="d" 
+      d:DesignHeight="230" d:DesignWidth="400"
+      VerticalAlignment="Center" HorizontalAlignment="Center"
+      Title="AddEditPage">
+
+    <StackPanel Width="400">
+        <TextBox md:HintAssist.Hint="Фамилия" md:HintAssist.IsFloating="True" Text="{Binding Surname}" HorizontalContentAlignment="Center" Name="TbSurname"/>
+        <TextBox md:HintAssist.Hint="Имя" md:HintAssist.IsFloating="True" Text="{Binding FirstName}" HorizontalContentAlignment="Center" Name="TbFirstName"/>
+        <TextBox md:HintAssist.Hint="Отчество" md:HintAssist.IsFloating="True" Text="{Binding Patronymic}" HorizontalContentAlignment="Center" Name="TbPatronymic"/>
+        <TextBox md:HintAssist.Hint="Телефон" md:HintAssist.IsFloating="True" md:TextFieldAssist.PrefixText="+7 " MaxLength="10" HorizontalContentAlignment="Center" Text="{Binding Phone}"  Name="TbPhone" Cursor="IBeam"/>
+        <TextBox md:HintAssist.Hint="Почта" md:HintAssist.IsFloating="True" Text="{Binding Email}" Name="TbEmail" HorizontalContentAlignment="Center"/>
+        <Button Content="Сохранить" Margin="0,5" Name="BtnSave" Click="BtnSave_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
+    </StackPanel>
+</Page>

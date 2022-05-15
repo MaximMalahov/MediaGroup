@@ -1,0 +1,34 @@
+﻿<Window x:Class="Малахов.ReportPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Малахов"
+        mc:Ignorable="d"
+        Title="Отчёт" Height="450" Width="250">
+    <StackPanel>
+        <DatePicker  md:HintAssist.Hint="Дата начало" MinWidth="200" HorizontalAlignment="Center" md:HintAssist.IsFloating="True" DisplayDate="01.01.2022" Name="TBDateStart" SelectedDateChanged="TBDateStart_SelectedDateChanged"/>
+        <DatePicker  md:HintAssist.Hint="Дата конец" MinWidth="200" HorizontalAlignment="Center" md:HintAssist.IsFloating="True" DisplayDate="01.01.2022" Name="TBDateEnd" SelectedDateChanged="TBDateStart_SelectedDateChanged"/>
+        <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="18"
+                FontWeight="Bold"
+                LineHeight="40"
+                Text="Отчёт по периоду" />
+        <TextBlock
+                FontSize="12"
+                FontStyle="Italic"
+                FontWeight="Medium"
+                Text="Количество заказов"
+                TextAlignment="Center" />
+        <TextBlock Name="TblCount" TextAlignment="Center"></TextBlock>
+        <TextBlock
+                FontSize="12"
+                FontStyle="Italic"
+                FontWeight="Medium"
+                Text="Общая сумма за период"
+                TextAlignment="Center" />
+        <TextBlock Name="TblSum" TextAlignment="Center"></TextBlock>
+    </StackPanel>
+</Window>

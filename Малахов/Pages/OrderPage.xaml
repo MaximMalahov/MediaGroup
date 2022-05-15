@@ -1,0 +1,63 @@
+﻿<Page x:Class="Малахов.Pages.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Малахов.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="350*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <ComboBox Name="CBFilter" Width="150" md:HintAssist.Hint="Фильтрация" HorizontalAlignment="Left" ToolTip="Фильтрация" SelectionChanged="CBFilter_SelectionChanged"/>
+            <ComboBox Name="CBSort" Width="150" md:HintAssist.Hint="Сортировка" Margin="5,0" HorizontalAlignment="Left" ToolTip="Сортировка" SelectionChanged="CBSort_SelectionChanged"/>
+            <Grid>
+                <TextBox x:Name="TbSearch" Width="150" HorizontalAlignment="Center" ToolTip="Поиск" TextChanged="TbSearch_TextChanged" Padding="0,0,25,0"/>
+                <md:PackIcon Kind="Magnify" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+
+        </StackPanel>
+        <DataGrid x:Name="DGridOrder" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Клиент" Binding="{Binding Client.Fullname}"/>
+                <DataGridTextColumn Width="*" Header="Наименование" Binding="{Binding Service.Title}"/>
+                <DataGridTextColumn Width="*" Header="Менеджер" Binding="{Binding Manager.Fullname}"/>
+                <DataGridTextColumn Width="*" Header="Кол-во" Binding="{Binding Count}"/>
+                <DataGridTextColumn Width="*" Header="Длительность" Binding="{Binding DurationInSecond}"/>
+                <DataGridTextColumn Width="*" Header="Цена" Binding="{Binding Price, StringFormat=0 ₽}"/>
+                <DataGridTextColumn Width="*" Header="Дата" Binding="{Binding Date}"/>
+                <DataGridTextColumn Width="*" Header="Статус" Binding="{Binding StatusString}"/>
+                <DataGridTemplateColumn Width="auto" x:Name="CellEdit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="BtnEdit_Click" Name="BtnEdit" Style="{DynamicResource MaterialDesignPaperButton}">
+                                <md:PackIcon Kind="Pencil"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="BtnDocument_Click"  Name="BtnDocument" Style="{DynamicResource MaterialDesignPaperButton}">
+                                <md:PackIcon Kind="FileDocumentOutline"/>
+                                </Button>
+                            </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Сформировать отчёт" Grid.Row="2"  HorizontalAlignment="Left" Margin="5" Name="Report" Click="Report_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+            <Button Content="Добавить" Grid.Row="2" Name="BtnAdd" Click="BtnAdd_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
+            <Button Content="Удалить" Grid.Row="2" Margin="5,0" Name="BtnDelete" Click="BtnDelete_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
+        </StackPanel>
+    </Grid>
+</Page>
