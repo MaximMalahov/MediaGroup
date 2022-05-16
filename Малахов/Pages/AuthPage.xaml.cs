@@ -1,25 +1,25 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Малахов.Entity;
 using Малахов.Classes;
+using Малахов.Models.Entity;
 
 namespace Малахов.Pages
 {
-	public partial class aut : Page
+	public partial class AuthPage : Page
 	{
-		public aut() => InitializeComponent();
+		public AuthPage() => InitializeComponent();
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			if (!string.IsNullOrWhiteSpace(Login.Text) && MediaGrEntities.GetContext().Users.Any(x => x.login == Login.Text))
+			if (!string.IsNullOrWhiteSpace(Login.Text) && MediaGrEntities.GetContext().Users.Any(x => x.Login == Login.Text))
 			{
-				if (MediaGrEntities.GetContext().Users.Any(x => x.login == Login.Text && x.password == Password.Password))
+				if (MediaGrEntities.GetContext().Users.Any(x => x.Login == Login.Text && x.Password == Password.Password))
                 {
-					var user = MediaGrEntities.GetContext().Users.First(x => x.login == Login.Text && x.password == Password.Password);
+					var user = MediaGrEntities.GetContext().Users.First(x => x.Login == Login.Text && x.Password == Password.Password);
 					Data.Access = user.Access;
 					Data.UserID = user.ID;
-					if (IsRemember.IsChecked == true) FileManager.SetConfig(new Config(user.login, user.password, true));
+					if (IsRemember.IsChecked == true) FileManager.SetConfig(new Config(user.Login, user.Password, true));
 					ManagerPage.MainFrame.Navigate(new Menu());
 				}
 				else
@@ -28,7 +28,7 @@ namespace Малахов.Pages
 			else
 				MessageBox.Show("Такого пользователя не существует!");
 		}
-		private void Button_Click_1(object sender, RoutedEventArgs e) => ManagerPage.MainFrame.Navigate(new reg());
+		private void Button_Click_1(object sender, RoutedEventArgs e) => ManagerPage.MainFrame.Navigate(new RegPage());
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

@@ -5,27 +5,21 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models;
+using Малахов.Models.Entity;
 
-namespace Малахов
+namespace Малахов.Pages.EditPages
 {
     /// <summary>
     /// Логика взаимодействия для TypesEditPages.xaml
     /// </summary>
     public partial class TypesEditPages : Page
     {
-        private Manager _currentType = new Manager();
-        public TypesEditPages()
+        private readonly Manager _currentType;
+        public TypesEditPages(Manager tp = null)
         {
             InitializeComponent();
-            _currentType = new Manager();
-            GetCombo();
-            DataContext = _currentType;
-        }
-        public TypesEditPages(Manager tp)
-        {
-            InitializeComponent();
-            _currentType = tp;
+            _currentType = tp ?? new Manager();
             GetCombo();
             DataContext = _currentType;
         }
@@ -47,7 +41,7 @@ namespace Малахов
         }
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (TbSurname.Text == null)
+            if (string.IsNullOrWhiteSpace(TbSurname.Text))
                 MessageBox.Show("Заполните пожалуйста все поля", "", MessageBoxButton.OK);
             else
             {
@@ -66,7 +60,6 @@ namespace Малахов
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CbLogin.Visibility = Data.IsAdmin() ? Visibility.Visible : Visibility.Collapsed;
-
         }
 
         private void Border_Drop(object sender, DragEventArgs e)
@@ -75,12 +68,13 @@ namespace Малахов
             ImageView.Visibility = Visibility.Visible;
             var filePath = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (filePath == null) return;
-            _currentType.Image = File.ReadAllBytes(filePath[0]);
-            var ms = new MemoryStream(_currentType.Image);
-            var source = new BitmapImage();
-            source.BeginInit();
-            source.StreamSource = ms;
-            source.EndInit();
+            var source = ImageManager.CroppedToBitmapImage(filePath[0]);
+            _currentType.Image = ImageManager.CroppedToBytes(source);
+            //var ms = new MemoryStream(_currentType.Image);
+            //var source = new BitmapImage();
+            //source.BeginInit();
+            //source.StreamSource = ms;
+            //source.EndInit();
             ImageView.Source = source;
         }
     }

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 
 namespace Малахов.Pages
 {
@@ -12,11 +12,20 @@ namespace Малахов.Pages
     public partial class ProfileManagerPage : Page
     {
         private readonly Manager _currentManager;
+        private readonly Client _currentClient;
         public ProfileManagerPage()
         {
             InitializeComponent();
-            _currentManager = MediaGrEntities.GetContext().Managers.Any(x => x.IDUser == Data.UserID) ? MediaGrEntities.GetContext().Managers.First(x => x.IDUser == Data.UserID) : new Manager();
-            DataContext = _currentManager;
+            if (Data.IsUser())
+            {
+                _currentClient = MediaGrEntities.GetContext().Clients.Any(x => x.IDUser == Data.UserID) ? MediaGrEntities.GetContext().Clients.First(x => x.IDUser == Data.UserID) : new Client();
+                DataContext = _currentClient;
+            }
+            else
+            {
+                _currentManager = MediaGrEntities.GetContext().Managers.Any(x => x.IDUser == Data.UserID) ? MediaGrEntities.GetContext().Managers.First(x => x.IDUser == Data.UserID) : new Manager();
+                DataContext = _currentManager;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -28,10 +37,21 @@ namespace Малахов.Pages
                 return;
             }
 
-            if (_currentManager.ID == 0)
+            if (Data.IsUser())
             {
-                _currentManager.IDUser = Data.UserID;
-                MediaGrEntities.GetContext().Managers.Add(_currentManager);
+                if (_currentClient.ID == 0)
+                {
+                    _currentClient.IDUser = Data.UserID;
+                    MediaGrEntities.GetContext().Clients.Add(_currentClient);
+                }
+            }
+            else
+            {
+                if (_currentManager.ID == 0)
+                {
+                    _currentManager.IDUser = Data.UserID;
+                    MediaGrEntities.GetContext().Managers.Add(_currentManager);
+                }
             }
 
             MediaGrEntities.GetContext().SaveChanges();

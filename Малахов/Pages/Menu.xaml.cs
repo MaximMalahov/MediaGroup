@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 
 namespace Малахов.Pages
 {
@@ -20,8 +20,9 @@ namespace Малахов.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            BtnProfile.Visibility = Data.IsManager() ?  Visibility.Visible : Visibility.Collapsed;
+            BtnProfile.Visibility = Data.IsManager() || Data.IsUser() ?  Visibility.Visible : Visibility.Collapsed;
             BtnManger.Visibility = Data.IsAdmin() ?  Visibility.Visible : Visibility.Collapsed;
+            BtnClients.Visibility = Data.IsUser() ?  Visibility.Collapsed : Visibility.Visible;
 
             if(MediaGrEntities.GetContext().Managers.Any(x => x.IDUser == Data.UserID))
             {

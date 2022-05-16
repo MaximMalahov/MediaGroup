@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 
-namespace Малахов
+namespace Малахов.Pages.EditPages
 {
     /// <summary>
     /// Логика взаимодействия для AddEditPage.xaml

@@ -14,7 +14,7 @@ namespace Малахов
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new aut());
+            MainFrame.Navigate(new AuthPage());
             ManagerPage.MainFrame = MainFrame;
         }
 
@@ -32,7 +32,7 @@ namespace Малахов
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
-            if (ManagerPage.MainFrame.Content.ToString().Contains("aut"))
+            if (ManagerPage.MainFrame.Content.ToString().Contains("AuthPage"))
             {
                 MainMenu.Visibility = Visibility.Collapsed;
                 BtnBack.Visibility = Visibility.Hidden;
@@ -50,7 +50,7 @@ namespace Малахов
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new TypesEditPages());
 
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new aut());
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new AuthPage());
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new OrderEditPage());
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 using Малахов.Pages.EditPages;
 using word = Microsoft.Office.Interop.Word;
 
@@ -26,7 +26,7 @@ namespace Малахов.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            ManagerPage.MainFrame.Navigate(new OrderEditPage((sender as Button).DataContext as Order));
+            ManagerPage.MainFrame.Navigate(new OrderEditPage((sender as Button)?.DataContext as Order));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -55,11 +55,14 @@ namespace Малахов.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DGridOrder.ItemsSource = MediaGrEntities.GetContext().Orders.ToList();
             BtnAdd.Visibility = Data.IsManager() ? Visibility.Visible : Visibility.Collapsed;
             BtnDelete.Visibility = Data.IsAdmin() ? Visibility.Visible : Visibility.Collapsed;
-            CellEdit.Visibility = Data.IsManager() ? Visibility.Visible : Visibility.Collapsed;
-
+            CellEdit.Visibility = Data.IsAdmin() ? Visibility.Visible : Visibility.Collapsed;
+            Report.Visibility = Data.IsUser() ? Visibility.Collapsed : Visibility.Visible;
+            BtnInfo.Visibility = Data.IsManager() ? Visibility.Visible : Visibility.Collapsed;
+            DGridOrder.ItemsSource = Data.IsUser() ? MediaGrEntities.GetContext().Orders.Where(x => x.Client.IDUser == Data.UserID).ToList() : MediaGrEntities.GetContext().Orders.ToList();
+            BtnDoOrder.Visibility = Data.IsUser() ? Visibility.Visible : Visibility.Collapsed;
+            
         }
 
         private void CBFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -161,5 +164,28 @@ namespace Малахов.Pages
         {
             new ReportPage().Show();
         }
+
+        #region CheckBoxIsMe
+
+        private void CbxIsMe_OnChecked(object sender, RoutedEventArgs e)
+        {
+            IsMeChecked();
+        }
+        private void CbxIsMe_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            IsMeChecked();
+        }
+
+        #endregion
+
+        private void IsMeChecked()
+        {
+            DGridOrder.ItemsSource = CbxIsMe.IsChecked == true ? MediaGrEntities.GetContext().Orders.Where(x => x.Manager.IDUser == Data.UserID).ToList() : MediaGrEntities.GetContext().Orders.ToList();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new OrderEditPage());
+
+        private void Info_OnClick(object sender, RoutedEventArgs e) => ManagerPage.Navigate(new OrderInfo((sender as Button)?.DataContext as Order));
+
     }
 }

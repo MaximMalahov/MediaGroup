@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Малахов.Classes;
+using Малахов.Models;
 
 namespace UnitTestProject1
 {
@@ -11,7 +11,6 @@ namespace UnitTestProject1
         public void TestMethod1()
         {
             Assert.AreEqual(true, Authorization.FindUser("manager"));
-            
         }
         [TestMethod]
         public void TestMethod2()

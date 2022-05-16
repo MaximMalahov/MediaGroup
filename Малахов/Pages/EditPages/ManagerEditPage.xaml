@@ -1,14 +1,18 @@
-﻿<Page x:Class="Малахов.TypesEditPages"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Малахов"
-      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
-      d:DesignHeight="200" d:DesignWidth="250"
-            VerticalAlignment="Center" HorizontalAlignment="Center"
-      Title="TypesEditPages" Loaded="Page_Loaded">
+﻿<Page
+    x:Class="Малахов.Pages.EditPages.TypesEditPages"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Малахов"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="TypesEditPages"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="200"
+    d:DesignWidth="250"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
 
     <StackPanel Width="250">
         <Border
@@ -46,10 +50,32 @@
                     Visibility="Collapsed" />
             </Grid>
         </Border>
-        <TextBox Text="{Binding Surname}" md:HintAssist.Hint="Фамилия" md:HintAssist.IsFloating="True" Name="TbSurname"/>
-        <TextBox Text="{Binding FirstName}" md:HintAssist.Hint="Имя" md:HintAssist.IsFloating="True" Name="TbFirstName"/>
-        <TextBox Text="{Binding Patronymic}" md:HintAssist.Hint="Отчество" md:HintAssist.IsFloating="True" Name="TbPatronymic"/>
-        <ComboBox Name="CbLogin" SelectedItem="{Binding User}" md:HintAssist.Hint="Логин" md:HintAssist.IsFloating="True" DisplayMemberPath="login"/>
-        <Button Content="Сохранить" Name="BtnSave" Click="BtnSave_Click" Style="{DynamicResource MaterialDesignPaperButton}" Margin="0,5"/>
+        <TextBox
+            Name="TbSurname"
+            md:HintAssist.Hint="Фамилия"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding Surname}" />
+        <TextBox
+            Name="TbFirstName"
+            md:HintAssist.Hint="Имя"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding FirstName}" />
+        <TextBox
+            Name="TbPatronymic"
+            md:HintAssist.Hint="Отчество"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding Patronymic}" />
+        <ComboBox
+            Name="CbLogin"
+            md:HintAssist.Hint="Логин"
+            md:HintAssist.IsFloating="True"
+            DisplayMemberPath="login"
+            SelectedItem="{Binding User}" />
+        <Button
+            Name="BtnSave"
+            Margin="0,5"
+            Click="BtnSave_Click"
+            Content="Сохранить"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
     </StackPanel>
 </Page>

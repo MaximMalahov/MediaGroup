@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 using Малахов.Pages;
 
 namespace Малахов

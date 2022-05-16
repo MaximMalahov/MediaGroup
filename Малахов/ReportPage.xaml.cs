@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 
 namespace Малахов
 {
@@ -27,12 +27,10 @@ namespace Малахов
 
         private void TBDateStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (TBDateStart.SelectedDate != null && TBDateEnd.SelectedDate != null)
-            {
-                var list = MediaGrEntities.GetContext().Orders.Where(x => x.Date >= TBDateStart.SelectedDate && x.Date <= TBDateEnd.SelectedDate).ToList();
-                TblCount.Text = list.Count.ToString();
-                TblSum.Text = $"{list.Sum(x => x.Price)} ₽";
-            }
+            if (TBDateStart.SelectedDate == null || TBDateEnd.SelectedDate == null) return;
+            var list = MediaGrEntities.GetContext().Orders.Where(x => x.Date >= TBDateStart.SelectedDate && x.Date <= TBDateEnd.SelectedDate).ToList();
+            TblCount.Text = list.Count.ToString();
+            TblSum.Text = $"{list.Sum(x => x.Price)} ₽";
         }
     }
 }

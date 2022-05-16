@@ -1,19 +1,53 @@
-﻿<Page x:Class="Малахов.Pages.Menu"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      mc:Ignorable="d" 
-      d:DesignHeight="260" d:DesignWidth="200"
-      VerticalAlignment="Center" HorizontalAlignment="Center"
-      Title="Menu" Loaded="Page_Loaded">
+﻿<Page
+    x:Class="Малахов.Pages.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Menu"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="260"
+    d:DesignWidth="200"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
 
     <StackPanel Width="200">
-        <TextBlock TextAlignment="Center" Margin="0,0,0,50" TextWrapping="Wrap" Name="TbName" HorizontalAlignment="Center"/>
-        <Button Content="Профиль" Margin="0,2.5" Name="BtnProfile" Click="BtnProfileMove_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
-        <Button Content="Клиенты" Margin="0,2.5" Click="BtnClientMove_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
-        <Button Content="Сервисы" Margin="0,2.5" Click="BtnServiceMove_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
-        <Button Content="Заказы" Margin="0,2.5" Click="BtnOrderMove_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
-        <Button Content="Менеджеры" Margin="0,2.5" Name="BtnManger" Click="BtnManagerMove_Click" Style="{DynamicResource MaterialDesignPaperButton}"/>
+        <TextBlock
+            Name="TbName"
+            Margin="0,0,0,50"
+            HorizontalAlignment="Center"
+            TextAlignment="Center"
+            TextWrapping="Wrap" />
+        <Button
+            Name="BtnProfile"
+            Margin="0,2.5"
+            Click="BtnProfileMove_Click"
+            Content="Профиль"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
+        <Button
+            Name="BtnClients"
+            Margin="0,2.5"
+            Click="BtnClientMove_Click"
+            Content="Клиенты"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
+        <Button
+            Name="BtnServices"
+            Margin="0,2.5"
+            Click="BtnServiceMove_Click"
+            Content="Сервисы"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
+        <Button
+            Name="BtnOrders"
+            Margin="0,2.5"
+            Click="BtnOrderMove_Click"
+            Content="Заказы"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
+        <Button
+            Name="BtnManger"
+            Margin="0,2.5"
+            Click="BtnManagerMove_Click"
+            Content="Менеджеры"
+            Style="{DynamicResource MaterialDesignPaperButton}" />
     </StackPanel>
 </Page>

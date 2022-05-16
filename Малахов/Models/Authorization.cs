@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Малахов.Entity;
+﻿using System.Linq;
+using Малахов.Models.Entity;
 
-namespace Малахов.Classes
+namespace Малахов.Models
 {
     public class Authorization
     {
 		public static bool FindUser(string login)
 		{
-			return MediaGrEntities.GetContext().Users.Any(user => user.login == login);
+			return MediaGrEntities.GetContext().Users.Any(user => user.Login != login);
 		}
 		private static User GetUser(string login)
 		{
-			return MediaGrEntities.GetContext().Users.First(x => x.login == login);
+			return MediaGrEntities.GetContext().Users.First(x => x.Login == login);
 		}
 		public static bool CheckPassword(string login, string password)
 		{
-			return MediaGrEntities.GetContext().Users.Any(x => x.login == login && x.password == password);
+			return MediaGrEntities.GetContext().Users.Any(x => x.Login == login && x.Password == password);
 		}
 
 		public static byte GetAccess(string login, string password)

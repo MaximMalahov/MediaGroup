@@ -1,0 +1,105 @@
+﻿<Page
+    x:Class="Малахов.Pages.OrderInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Малахов.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="OrderInfo"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="450"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+
+    <StackPanel Width="300">
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="22"
+            FontWeight="Bold"
+            LineHeight="40"
+            Text="Оформление заказа" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Клиент" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Client.Fullname}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Менеджер" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Manager.Fullname}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Ролик" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Service.Title}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Количество дней" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Count, StringFormat=0 дней}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Количество секунд" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding DurationInSecond, StringFormat=0 секунд}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Стоимость" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Sum}" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            FontStyle="Italic"
+            FontWeight="Medium"
+            Text="Текст начитки" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            FontSize="14"
+            LineHeight="35"
+            Text="{Binding Content}" />
+        <CheckBox
+            Checked="ToggleButton_OnChecked"
+            Content="Одобрено"
+            IsChecked="{Binding Status}"
+            Unchecked="ToggleButton_OnChecked" />
+    </StackPanel>
+</Page>

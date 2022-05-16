@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Малахов.Classes;
-using Малахов.Entity;
+using Малахов.Models.Entity;
 
 namespace Малахов.Pages
 {
