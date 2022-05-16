@@ -26,7 +26,7 @@ namespace Малахов.Models.Entity
         public byte[] Music { get; set; }
         public string Content { get; set; }
         public string StatusString => Status ? "Одобрено" : "Не одобрено";
-        public string Sum => $"Стоимость: {Price} руб.";
+        public string Sum => $"Стоимость с включающими услугами: {Price} руб.";
 
         public virtual Client Client { get; set; }
         public virtual Manager Manager { get; set; }

@@ -35,8 +35,8 @@
             Name="BtnServices"
             Margin="0,2.5"
             Click="BtnServiceMove_Click"
-            Content="Сервисы"
-            Style="{DynamicResource MaterialDesignPaperButton}" />
+            Content="Ролики"
+            Style="{DynamicResource MaterialDesignPaperButton}" Cursor="Hand" />
         <Button
             Name="BtnOrders"
             Margin="0,2.5"

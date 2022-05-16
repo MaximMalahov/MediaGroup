@@ -71,18 +71,18 @@
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding Service.Title}"
-                    Header="Наименование" />
+                    Header="Ролик" />
                 <DataGridTextColumn
                     Width="*"
                     Binding="{Binding Manager.Fullname}"
                     Header="Менеджер" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding Count}"
-                    Header="Кол-во" />
+                    Binding="{Binding Count, StringFormat=0 дней}"
+                    Header="Кол-во дней" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding DurationInSecond}"
+                    Binding="{Binding DurationInSecond, StringFormat=0 сек.}"
                     Header="Длительность" />
                 <DataGridTextColumn
                     Width="*"

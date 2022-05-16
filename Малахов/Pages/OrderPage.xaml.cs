@@ -119,9 +119,8 @@ namespace Малахов.Pages
                 ["<Date>"] = order.Date.ToString(culture.DateTimeFormat.ShortDatePattern),
             };
             var app = new word.Application();
-            try
-            {
-                object file = new FileInfo("../../Resoure/Template.docx").FullName;
+
+                object file = new FileInfo("../../Resource/Template.docx").FullName;
                 var missing = Type.Missing;
                 app.Documents.Open(file);
                 foreach (var item in items)
@@ -146,18 +145,12 @@ namespace Малахов.Pages
                         replace
                     );
                 }
-                app.ActiveDocument.SaveAs2(
+                app.ActiveDocument.SaveAs(
                     $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/{order.ID}-{order.Date.ToString(culture.DateTimeFormat.ShortDatePattern)}.docx");
                 app.ActiveDocument.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.InnerException.ToString());
-            }
-            finally
-            {
+            
                 app.Quit();
-            }
+
         }
 
         private void Report_Click(object sender, RoutedEventArgs e)

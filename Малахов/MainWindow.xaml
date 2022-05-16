@@ -41,6 +41,7 @@
         </Menu>
         <md:ColorZone Grid.Row="1" Mode="PrimaryMid">
             <Grid Height="45">
+                
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"

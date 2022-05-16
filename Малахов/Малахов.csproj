@@ -375,6 +375,7 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\main.ico" />
     <Content Include="Resource\script.sql" />
   </ItemGroup>
   <ItemGroup />

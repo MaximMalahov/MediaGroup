@@ -69,7 +69,7 @@
             Name="CbLogin"
             md:HintAssist.Hint="Логин"
             md:HintAssist.IsFloating="True"
-            DisplayMemberPath="login"
+            DisplayMemberPath="Login"
             SelectedItem="{Binding User}" />
         <Button
             Name="BtnSave"

@@ -81,9 +81,11 @@
             FontWeight="Medium"
             Text="Стоимость" />
         <TextBlock
+            TextAlignment="Center"
             HorizontalAlignment="Center"
             FontSize="14"
             LineHeight="35"
+            TextWrapping="Wrap"
             Text="{Binding Sum}" />
         <TextBlock
             HorizontalAlignment="Center"
@@ -92,9 +94,11 @@
             FontWeight="Medium"
             Text="Текст начитки" />
         <TextBlock
+            TextAlignment="Center"
             HorizontalAlignment="Center"
             FontSize="14"
             LineHeight="35"
+            TextWrapping="Wrap"
             Text="{Binding Content}" />
         <CheckBox
             Checked="ToggleButton_OnChecked"
