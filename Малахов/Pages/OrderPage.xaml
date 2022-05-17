@@ -96,7 +96,7 @@
                     Width="*"
                     Binding="{Binding StatusString}"
                     Header="Статус" />
-                <DataGridTemplateColumn x:Name="BtnInfo" Width="auto">
+                <DataGridTemplateColumn x:Name="BtnInfo">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button
