@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using Малахов.Classes;
 using Малахов.Models;
 using Малахов.Models.Entity;
@@ -70,11 +68,6 @@ namespace Малахов.Pages.EditPages
             if (filePath == null) return;
             var source = ImageManager.CroppedToBitmapImage(filePath[0]);
             _currentType.Image = ImageManager.CroppedToBytes(source);
-            //var ms = new MemoryStream(_currentType.Image);
-            //var source = new BitmapImage();
-            //source.BeginInit();
-            //source.StreamSource = ms;
-            //source.EndInit();
             ImageView.Source = source;
         }
     }
