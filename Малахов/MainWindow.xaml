@@ -23,25 +23,22 @@
         <Menu
             Name="MainMenu"
             Padding="0,2"
+            md:MenuAssist.TopLevelMenuItemHeight="25"
             Visibility="Collapsed">
-            <MenuItem Header="File">
-                <MenuItem Click="MenuItem_Click" Header="Добавить Клиентв" />
-                <MenuItem Click="MenuItem_Click_1" Header="Добавить Сервис" />
-                <MenuItem Click="MenuItem_Click_2" Header="Добавить Тип" />
-                <MenuItem Click="MenuItem_Click_4" Header="Добавить Заказ" />
+            <MenuItem Header="Файл">
                 <MenuItem
                     Click="MenuItem_Click_3"
                     Header="Выход"
                     Icon="{md:PackIcon Kind=ExitToApp}" />
             </MenuItem>
-            <MenuItem Header="About">
-                <MenuItem Header="About us" />
-                <MenuItem Header="Help" />
+            <MenuItem Header="О нас">
+                <MenuItem Header="О нас" />
+                <MenuItem Header="Помощь" />
             </MenuItem>
         </Menu>
         <md:ColorZone Grid.Row="1" Mode="PrimaryMid">
             <Grid Height="45">
-                
+
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
